@@ -2,7 +2,7 @@ import { sql, QueryResult } from "@vercel/postgres";
 import { unstable_noStore as noStore } from "next/cache";
 
 export async function fetchEmployees(page: number, limit: number) {
-  noStore();
+  //   noStore();
 
   try {
     // Calculate the offset based on the current page
