@@ -2,6 +2,7 @@ import Image from "next/image";
 import Pagination from "../components/pagination";
 import Data from "../components/data";
 import { fetchTotalEmployeeCount } from "@/lib/data";
+import { Suspense } from "react";
 
 export default async function Home({
   searchParams,
@@ -30,11 +31,13 @@ export default async function Home({
       </div>
 
       <div>
-        <Data
-          records={totalRecords}
-          page={pageNumber}
-          limit={numberOfRecordsPerPage}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Data
+            records={totalRecords}
+            page={pageNumber}
+            limit={numberOfRecordsPerPage}
+          />
+        </Suspense>
       </div>
     </main>
   );

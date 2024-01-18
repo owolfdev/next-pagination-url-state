@@ -32,7 +32,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
   }, [page, pathname, router]);
 
   const handleClick = () => {
-    setLoading(true);
+    // setLoading(true);
   };
 
   return (
