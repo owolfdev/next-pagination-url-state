@@ -27,6 +27,14 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
     }
   }, [searchParams, pathname, router]);
 
+  React.useEffect(() => {
+    setLoading(false);
+  }, [page, pathname, router]);
+
+  const handleClick = () => {
+    setLoading(true);
+  };
+
   return (
     <div className="flex flex-col items-center gap-8 w-screen">
       <div className="text-2xl font-bold">Pagination</div>
@@ -35,6 +43,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           <button
             className="border rounded px-2 disabled:opacity-50"
             disabled={page === 1}
+            onClick={handleClick}
           >
             {"<-"}
           </button>
@@ -53,6 +62,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           </button>
         </Link>
       </div>
+      <div>{loading && <span>Loading...</span>}</div>
     </div>
   );
 }
