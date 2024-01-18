@@ -57,6 +57,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           <button
             className="border rounded px-2 disabled:opacity-50"
             disabled={page === Math.ceil(records / limit)}
+            onClick={handleClick}
           >
             {"->"}
           </button>
