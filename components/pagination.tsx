@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { Span } from "next/dist/trace";
 
 function Pagination({ records, limit }: { records: number; limit: number }) {
   const router = useRouter();
@@ -32,7 +33,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
   }, [page, pathname, router]);
 
   const handleClick = () => {
-    // setLoading(true);
+    setLoading(true);
   };
 
   return (
@@ -49,8 +50,16 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           </button>
         </Link>
 
-        <div>
-          {page} of {Math.ceil(records / limit)}
+        <div className="">
+          {loading ? (
+            <span className="text-gray-400">
+              {page} of {Math.ceil(records / limit)}
+            </span>
+          ) : (
+            <span>
+              {page} of {Math.ceil(records / limit)}
+            </span>
+          )}
         </div>
 
         <Link href={`${pathname}?page=${page + 1}`} passHref>
@@ -63,7 +72,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           </button>
         </Link>
       </div>
-      <div>{loading && <span>Loading...</span>}</div>
+      {/* <div>{loading && <span>Loading...</span>}</div> */}
     </div>
   );
 }
