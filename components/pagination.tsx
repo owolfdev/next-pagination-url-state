@@ -52,7 +52,7 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
 
         <div className="">
           {loading ? (
-            <span className="text-gray-400">
+            <span className="opacity-50">
               {page} of {Math.ceil(records / limit)}
             </span>
           ) : (
@@ -72,7 +72,14 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           </button>
         </Link>
       </div>
-      {/* <div>{loading && <span>Loading...</span>}</div> */}
+      {loading && (
+        <div
+          id="loading"
+          className="fixed bg-black h-screen w-screen opacity-50 top-[220px] boarder"
+        >
+          <div className="text-5xl"></div>
+        </div>
+      )}
     </div>
   );
 }

@@ -14,7 +14,10 @@ async function Data({
 }) {
   //
   const data = await fetchEmployees(page, limit);
+
   const employees = data.rows;
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return (
     <div className="flex flex-col gap-4 ">
