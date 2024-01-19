@@ -31,13 +31,13 @@ export default async function Home({
       </div>
 
       <div>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
-        <Data
-          records={totalRecords}
-          page={pageNumber}
-          limit={numberOfRecordsPerPage}
-        />
-        {/* </Suspense> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Data
+            records={totalRecords}
+            page={pageNumber}
+            limit={numberOfRecordsPerPage}
+          />
+        </Suspense>
       </div>
     </main>
   );

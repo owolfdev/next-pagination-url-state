@@ -1,5 +1,5 @@
 import React from "react";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 import { fetchEmployees } from "@/lib/data";
 
@@ -18,19 +18,17 @@ async function Data({
 
   return (
     <div className="flex flex-col gap-4 ">
-      <Suspense fallback={<p>Loading...</p>}>
-        <div>Total Number of Records: {records}</div>
-        {employees.map((employee) => (
-          <div
-            key={employee.id}
-            className="border rounded p-4 w-[360px] border-gray-500"
-          >
-            <p>First Name: {employee.first_name}</p>
-            <p>Last Name: {employee.last_name}</p>
-            <p>Email: {employee.email}</p>
-          </div>
-        ))}
-      </Suspense>
+      <div>Total Number of Records: {records}</div>
+      {employees.map((employee) => (
+        <div
+          key={employee.id}
+          className="border rounded p-4 w-[360px] border-gray-500"
+        >
+          <p>First Name: {employee.first_name}</p>
+          <p>Last Name: {employee.last_name}</p>
+          <p>Email: {employee.email}</p>
+        </div>
+      ))}
     </div>
   );
 }
