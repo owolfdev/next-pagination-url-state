@@ -17,7 +17,7 @@ async function Data({
 
   const employees = data.rows;
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return (
     <div className="flex flex-col gap-4 ">
