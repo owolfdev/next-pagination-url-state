@@ -72,14 +72,14 @@ function Pagination({ records, limit }: { records: number; limit: number }) {
           </button>
         </Link>
       </div>
-      {loading && (
+      {/* {loading && (
         <div
           id="loading"
           className="fixed bg-black h-screen w-screen opacity-50 top-[220px] boarder"
         >
           <div className="text-5xl"></div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
